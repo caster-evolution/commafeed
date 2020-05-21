@@ -106,6 +106,10 @@ public class CommaFeedApplication extends Application<CommaFeedConfiguration> {
 
 	@Override
 	public void run(CommaFeedConfiguration config, Environment environment) throws Exception {
+
+		environment.getApplicationContext().setContextPath("/rss-reader");
+		environment.getAdminContext().setContextPath("/rss-reader");
+
 		// guice init
 		Injector injector = Guice.createInjector(new CommaFeedModule(hibernateBundle.getSessionFactory(), config, environment.metrics()));
 
